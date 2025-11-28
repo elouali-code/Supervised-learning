@@ -1,0 +1,8 @@
+US + Canada: 1-78, 301
+Europe: 100-169
+Extreme-Orient: 207, 209, 215, 217, 240
+Moyen-Orient: 212-216, 222, 224, 235, 239, 243, 245, 248, 253
+Asie centrale et du sud: 210-254 sauf les précédents
+Amerique latine: 260-300,  303-349
+Afrique: 400-468
+Océanie: 501-554

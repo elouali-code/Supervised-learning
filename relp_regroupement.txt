@@ -1,0 +1,4 @@
+Référent ou partenaire: 0,1,13
+Famille: 2-10
+colloc: 11, 12
+autre: 14-17
