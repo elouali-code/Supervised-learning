@@ -16,7 +16,7 @@ except:
     print("Erreur : Lancez d'abord le script de pré-traitement pour avoir les fichiers CSV.")
     exit()
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
 
 #  notre Random Forest (Paramètres par défaut)
 rf_model = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
@@ -62,6 +62,7 @@ explainer = lime.lime_tabular.LimeTabularExplainer(
 
 # 2. Choix d'une personne à expliquer (prenons la personne n 10 du test set)
 idx_personne = 10
+#print(X_test[idx_personne]['RELP_Group_nan'])
 personne_a_expliquer = X_test.iloc[idx_personne]
 vraie_reponse = y_test.iloc[idx_personne]
 

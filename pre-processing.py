@@ -81,7 +81,8 @@ numerical_cols = ['AGEP', 'WKHP']
 # On prend nos NOUVEAUX groupes + les colonnes simples (SANS OCCP)
 categorical_cols = [
     'SCHL_Group', 'POBP_Group', # Nos nouveaux groupes
-    'COW', 'MAR', 'RELP_Group', 'SEX', 'RAC1P'       # Les colonnes simples
+    'COW', 'MAR', 'RELP_Group', 
+    'SEX', 'RAC1P'       # Les colonnes simples
 ]
 
 # On supprime les colonnes originales qu'on a regroupées ET OCCP
