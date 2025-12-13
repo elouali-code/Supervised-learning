@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # 1. Chargement
-print("Chargement des données...")
 X = pd.read_csv('alt_acsincome_ca_features_85.csv')
 y = pd.read_csv('alt_acsincome_ca_labels_85.csv')
 y.rename(columns={'PINCP': 'TARGET'}, inplace=True)
@@ -16,7 +15,6 @@ plt.figure(figsize=(8, 6))
 sns.heatmap(df[['AGEP', 'WKHP', 'TARGET']].corr(), annot=True, cmap='coolwarm', fmt='.2f')
 plt.title("Corrélation : Âge, Heures, Revenu")
 plt.savefig('analyse_correlation_numerique.png')
-print("-> Image 'analyse_correlation_numerique.png' créée.")
 
 # 3. Analyse Catégorielle (Études, Mariage, Sexe)
 # On regarde le % de riches dans chaque catégorie
@@ -31,6 +29,3 @@ for col, title in zip(cols_a_analyser, titles):
     plt.ylabel("Probabilité (>50k)")
     plt.xlabel(f"Code {col}")
     plt.savefig(f'analyse_{col}.png')
-    print(f"-> Image 'analyse_{col}.png' créée.")
-
-print("Terminé ! Regardez les images générées.")
