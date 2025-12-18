@@ -69,6 +69,43 @@ print(f"Accuracy Train (Best) : {acc_train_opt:.2%}")
 print(f"Accuracy Test (Best)  : {acc_test_opt:.2%}")
 
 
+print("\nEvaluation Colorado")
+
+try:
+    X_co = pd.read_csv('X_processed_co.csv')
+    y_co = pd.read_csv('y_labels_co.csv').iloc[:, 0]
+except:
+    print("Erreur de fichier.")
+    exit()
+
+y_pred = ada_default.predict(X_co)
+
+accuracy = accuracy_score(y_co, y_pred)
+print(f"Accuracy Random Forest sur dataset Colorado: {accuracy:.2%}")
+print("-" * 30)
+print(classification_report(y_co, y_pred))
+
+print("\nEvaluation Nevada")
+
+try:
+    X_ne = pd.read_csv('X_processed_ne.csv')
+    y_ne = pd.read_csv('y_labels_ne.csv').iloc[:, 0]
+except:
+    print("Erreur de fichier.")
+    exit()
+
+y_pred = ada_default.predict(X_ne)
+
+accuracy = accuracy_score(y_ne, y_pred)
+print(f"Accuracy Random Forest sur dataset Nevada: {accuracy:.2%}")
+print("-" * 30)
+print(classification_report(y_ne, y_pred))
+
+# -------------------------------
+# Importances des features (AdaBoost)
+# -------------------------------
+
+
 # Graphique Feature Importance
 importances = best_ada.feature_importances_
 feature_imp_df = pd.DataFrame({'Feature': X.columns, 'Importance': importances})

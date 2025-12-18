@@ -8,8 +8,8 @@ start_time = time.time()
 
 # --- 1. Chargement des Données ---
 try:
-    features_df = pd.read_csv('alt_acsincome_ca_features_85.csv')
-    labels_df = pd.read_csv('alt_acsincome_ca_labels_85.csv')
+    features_df = pd.read_csv('features_split_1.csv')
+    labels_df = pd.read_csv('labels_split_1.csv')
     print("Fichiers chargés.")
 except FileNotFoundError:
     print("ERREUR: Fichiers CSV non trouvés.")
@@ -126,7 +126,7 @@ print(X_processed_df.head())
 # --- 7. Sauvegarde des Fichiers "Propres" ---
 print("Sauvegarde des fichiers 'X_processed.csv' et 'y_labels.csv'...")
 
-X_processed_df.to_csv('X_processed.csv', index=False)
-labels_df.to_csv('y_labels.csv', index=False) 
+X_processed_df.to_csv('X_processed_s1.csv', index=False)
+labels_df.to_csv('y_labels_s1.csv', index=False) # On sauvegarde aussi les labels
 
 end_time = time.time()
