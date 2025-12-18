@@ -48,7 +48,7 @@ param_grid = {
     'n_estimators': [300, 400, 600]
 }
 
-#CV_rfc = GridSearchCV(estimator=XGBClassifier(random_state=42, n_jobs=-1, eval_metric="logloss"), param_grid=param_grid, cv= 5)
+#CV_rfc = GridSearchCV(estimator=XGBClassifier(random_state=42, n_jobs=-1, eval_metric="logloss", colsample_bytree=0.8), param_grid=param_grid, cv= 5)
 #CV_rfc.fit(X_train, y_train)
 
 #print("meilleurs paramètres")
