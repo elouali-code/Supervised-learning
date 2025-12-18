@@ -14,6 +14,8 @@ except:
     print("Erreur de fichier.")
     exit()
 
+X, poubelle1, y, poubelle2 = train_test_split(X, y, test_size=0.8, random_state=42, shuffle=True)
+
 X_train, X_test, y_train, y_test = train_test_split(
     X, y,
     test_size=0.2,
@@ -26,8 +28,8 @@ start_time = time.time()
 
 # n_estimators=100 : 100 weak learners
 ada_clf = AdaBoostClassifier(
-    n_estimators=100,
-    learning_rate=1.0,
+    n_estimators=150,
+    learning_rate=1.5,
     random_state=42
 )
 ada_clf.fit(X_train, y_train)
@@ -50,6 +52,38 @@ print(f"Accuracy AdaBoost entraînement: {accuracy_train:.2%}")
 print("-" * 30)
 print(classification_report(y_train, y_pred_train))
 
+
+print("\nEvaluation Colorado")
+
+try:
+    X_co = pd.read_csv('X_processed_co.csv')
+    y_co = pd.read_csv('y_labels_co.csv').iloc[:, 0]
+except:
+    print("Erreur de fichier.")
+    exit()
+
+y_pred = ada_clf.predict(X_co)
+
+accuracy = accuracy_score(y_co, y_pred)
+print(f"Accuracy Random Forest sur dataset Colorado: {accuracy:.2%}")
+print("-" * 30)
+print(classification_report(y_co, y_pred))
+
+print("\nEvaluation Nevada")
+
+try:
+    X_ne = pd.read_csv('X_processed_ne.csv')
+    y_ne = pd.read_csv('y_labels_ne.csv').iloc[:, 0]
+except:
+    print("Erreur de fichier.")
+    exit()
+
+y_pred = ada_clf.predict(X_ne)
+
+accuracy = accuracy_score(y_ne, y_pred)
+print(f"Accuracy Random Forest sur dataset Nevada: {accuracy:.2%}")
+print("-" * 30)
+print(classification_report(y_ne, y_pred))
 
 # -------------------------------
 # Importances des features (AdaBoost)
