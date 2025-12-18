@@ -43,11 +43,9 @@ xgb_clf.fit(X_train, y_train)
 
 param_grid = {
     'max_depth': [4, 6],
-    'min_child_weight': [3, 5, 7],
     'subsample': [0.7,0.8, 0.9],
-    'colsample_bytree': [0.7,0.8, 0.9],
     'learning_rate': [0.03, 0.05, 0.1],
-    'n_estimators': [400, 600]
+    'n_estimators': [300, 400, 600]
 }
 
 #CV_rfc = GridSearchCV(estimator=XGBClassifier(random_state=42, n_jobs=-1, eval_metric="logloss"), param_grid=param_grid, cv= 5)
