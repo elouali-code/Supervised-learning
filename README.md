@@ -1,2 +1,2 @@
 # Apprentissage-supervis-
-Apprentissage supervisé 
+Apprentissage supervisé  v2.0

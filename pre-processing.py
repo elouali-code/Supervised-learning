@@ -12,11 +12,11 @@ try:
     labels_df = pd.read_csv('labels_split_1.csv')
     print("Fichiers chargés.")
 except FileNotFoundError:
-    print("ERREUR: Fichiers CSV non trouvés. Vérifiez qu'ils sont dans le bon dossier.")
+    print("ERREUR: Fichiers CSV non trouvés.")
     exit()
 
-# --- 2. Feature Engineering (Regroupement) ---
-print("Application des regroupements (feature engineering)...")
+# --- 2. Feature Engineering  ---
+print("Application des regroupements ...")
 
 # === Regroupement SCHL (Niveau d'études) ===
 schl_bins = [0, 16, 20, 24]
@@ -130,5 +130,3 @@ X_processed_df.to_csv('X_processed_s1.csv', index=False)
 labels_df.to_csv('y_labels_s1.csv', index=False) # On sauvegarde aussi les labels
 
 end_time = time.time()
-print(f"\nTerminé ! Pré-traitement effectué en {end_time - start_time:.2f} secondes.")
-print("Vous avez maintenant 'X_processed.csv' et 'y_labels.csv' prêts pour l'entraînement.")
